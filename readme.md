@@ -7,6 +7,6 @@ Arts are distributed under CC BY-SA 4.0 license.
 
 You can get more information about AYIAS in our dogesoundclub discord.
 
-## Attributors
+# Attributors
 
 kevinshen56714
