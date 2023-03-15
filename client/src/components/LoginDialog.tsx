@@ -136,8 +136,8 @@ const avatars = [
 
 // shuffle the avatars array
 for (let i = avatars.length - 1; i > 0; i--) {
-  const j = Math.floor(Math.random() * (i + 1))
-  ;[avatars[i], avatars[j]] = [avatars[j], avatars[i]]
+  const j = Math.floor(Math.random() * (i + 1));
+  [avatars[i], avatars[j]] = [avatars[j], avatars[i]]
 }
 
 export default function LoginDialog() {

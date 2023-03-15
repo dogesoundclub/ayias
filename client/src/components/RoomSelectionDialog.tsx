@@ -17,6 +17,8 @@ import { useAppSelector } from '../hooks'
 import phaserGame from '../PhaserGame'
 import Bootstrap from '../scenes/Bootstrap'
 
+import Wallet from "../klaytn/Wallet";
+
 const Backdrop = styled.div`
   position: absolute;
   top: 50%;
@@ -107,7 +109,10 @@ export default function RoomSelectionDialog() {
   const [showSnackbar, setShowSnackbar] = useState(false)
   const lobbyJoined = useAppSelector((state) => state.room.lobbyJoined)
 
-  const handleConnect = () => {
+  const handleConnect = async () => {
+    if (await Wallet.connected() !== true) {
+      await Wallet.connect()
+    } else {
     if (lobbyJoined) {
       const bootstrap = phaserGame.scene.keys.bootstrap as Bootstrap
       bootstrap.network
@@ -118,7 +123,18 @@ export default function RoomSelectionDialog() {
       setShowSnackbar(true)
     }
   }
-
+}
+const guestConnect = () => {
+  if (lobbyJoined) {
+    const bootstrap = phaserGame.scene.keys.bootstrap as Bootstrap
+    bootstrap.network
+      .joinOrCreatePublic()
+      .then(() => bootstrap.launchGame())
+      .catch((error) => console.error(error))
+  } else {
+    setShowSnackbar(true)
+  }
+}
   return (
     <>
       <Snackbar
@@ -179,19 +195,26 @@ export default function RoomSelectionDialog() {
             </CustomRoomWrapper>
           ) : (
             <>
-              <Title>Welcome to SkyOffice</Title>
+              <Title>Welcome to AYIAS</Title>
               <Content>
                 <img src={logo} alt="logo" />
                 <Button variant="contained" color="secondary" onClick={handleConnect}>
-                  Connect to public lobby
+                  LOGIN TO KAIKAS
                 </Button>
                 <Button
                   variant="outlined"
                   color="secondary"
+                  onClick={guestConnect}
+                >
+                  ENTER TO GUEST
+                </Button>
+                {/* <Button
+                  variant="outlined"
+                  color="secondary"
                   onClick={() => (lobbyJoined ? setShowCustomRoom(true) : setShowSnackbar(true))}
                 >
-                  Create/find custom rooms
-                </Button>
+                  ENTER TO GUEST
+                </Button> */}
               </Content>
             </>
           )}

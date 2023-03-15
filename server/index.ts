@@ -5,14 +5,18 @@ import { Server, LobbyRoom } from 'colyseus'
 import { monitor } from '@colyseus/monitor'
 import { RoomType } from '../types/Rooms'
 
+import mediaRouter  from './mediaRouter'
+
 // import socialRoutes from "@colyseus/social/express"
 
 import { SkyOffice } from './rooms/SkyOffice'
+
 
 const port = Number(process.env.PORT || 2567)
 const app = express()
 
 app.use(cors())
+app.use('/media',mediaRouter)
 app.use(express.json())
 // app.use(express.static('dist'))
 
@@ -20,6 +24,7 @@ const server = http.createServer(app)
 const gameServer = new Server({
   server,
 })
+
 
 // register room handlers
 gameServer.define(RoomType.LOBBY, LobbyRoom)
