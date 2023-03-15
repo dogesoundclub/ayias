@@ -1,0 +1,30 @@
+.rm-audio-player-provider * {
+    overflow: hidden;
+    position: relative;
+}
+.impklu .interface-grid {
+    background:rgba(0, 0, 0, 0.2) !important;
+}
+.rm-player-progress-bar {
+    height: 5px !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+.rm-player-progress-handle, .rm-player-progress {
+    background: rgba(255, 255, 255, 1) !important;
+}
+.chEzhz {
+    animation: title 5s linear infinite;
+}
+
+.chEzhz .title {
+    text-overflow: inherit;
+}
+
+@keyframes title {
+    from {
+        transform: translateX(90%);
+    }
+    to {
+        transform: translateX(-90%);
+    }
+}

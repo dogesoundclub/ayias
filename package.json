@@ -32,6 +32,7 @@
   "dependencies": {
     "@colyseus/command": "^0.1.7",
     "@colyseus/monitor": "^0.14.0",
+    "@ethersproject/bignumber": "^5.7.0",
     "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
@@ -39,9 +40,15 @@
     "colyseus": "^0.14.0",
     "colyseus.js": "^0.14.12",
     "cors": "^2.8.5",
+    "eventcontainer": "^0.0.6",
     "express": "^4.16.4",
+    "i": "^0.3.7",
+    "npm": "^9.6.1",
     "phaser": "^3.55.2",
+    "react-jinke-music-player": "^4.24.2",
+    "react-modern-audio-player": "^1.4.0-rc.2",
     "regenerator-runtime": "^0.13.7",
+    "socket.io": "^4.6.1",
     "typescript": "^4.8.2"
   }
 }
